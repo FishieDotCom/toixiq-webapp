@@ -1,6 +1,8 @@
+import React from "react";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+// import { SDKProvider } from "@tma.js/sdk-react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,8 +17,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
-    </html>
+    <>
+      {/* <SDKProvider> */}
+      <html lang="en">
+        <body className={inter.className}>{children}</body>
+      </html>
+      {/* </SDKProvider> */}
+    </>
   );
 }
