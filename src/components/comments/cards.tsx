@@ -25,12 +25,6 @@ function cards() {
                 <ThumbsUp className="hover:bg-blue-500 hover:text-white transition-colors duration-200 ease-in-out" />
                 <ThumbsDown className="hover:bg-red-500 hover:text-white transition-colors duration-200 ease-in-out" />
               </div>
-              {/* <div className="flex justify-center mt-5">
-                <MessageCircle className="hover:bg-yellow-400 hover:text-black transition-colors duration-200 ease-in-out" />
-              </div>
-              <div className="flex items-end mt-5">
-                <Share2Icon className="hover:bg-green-500 hover:text-white transition-colors duration-200 ease-in-out" />
-              </div> */}
             </CardContent>
           </CardHeader>
         </Card>
