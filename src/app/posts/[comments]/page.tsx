@@ -1,4 +1,4 @@
-// todo: refactor this because it might be slow in prod
+// todo: refactor this because it could be cleaner
 // note: i am sorry, i speed ran this entire thing so there is a lot to go through
 // then again, this is peak development so...yall have fun
 // tf  counter: 0
