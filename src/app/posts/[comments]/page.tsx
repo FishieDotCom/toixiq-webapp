@@ -109,7 +109,7 @@ export default function Page({ params }: { params: { comments: string } }) {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center bg-black min-h-screen ">
+      <div className="flex justify-center items-center bg-gray-800 min-h-screen ">
         <div className="text-center text-white">Loading ....</div>
       </div>
     );
@@ -117,7 +117,7 @@ export default function Page({ params }: { params: { comments: string } }) {
 
   return (
     <>
-      <section className="flex items-center justify-center min-h-screen overflow-hidden bg-black">
+      <section className="flex items-center justify-center min-h-screen overflow-hidden bg-gray-800">
         <section className="flex flex-col items-center justify-center">
           <div>
             <div className="flex items-center">
@@ -134,12 +134,22 @@ export default function Page({ params }: { params: { comments: string } }) {
             <div className="flex flex-col gap-5 m-5">
               {post ? (
                 <>
-                  <Card className={`h-[10rem] bg-blue-500`} key={post.id}>
+                  {/* hard coded the css for the gradient. need to remove specific values and use post.postcolor value but make it a gradient and make it match for the border*/}
+                  <Card
+                    className="h-[10rem] shadow-inner bg-gradient-to-b from-black to-blue-800 rounded-2xl border-blue-800"
+                    // style={{ backgroundColor: post.postColor }}
+                    key={post.id}
+                  >
                     <CardHeader>
-                      <CardTitle className="text-md text-left">
-                        {post.name}
-                      </CardTitle>
-                      <CardDescription className="text-black text-left">
+                      <div className="flex flex-wrap flex-row gap-3">
+                        <CardTitle className="text-l text-left text-white ">
+                          {post.name}
+                        </CardTitle>
+                        <CardTitle className="text-md text-left text-white">
+                          @{post.userName}
+                        </CardTitle>
+                      </div>
+                      <CardDescription className=" text-left text-white">
                         {post.content}
                       </CardDescription>
                       <CardContent>
@@ -152,25 +162,23 @@ export default function Page({ params }: { params: { comments: string } }) {
                   </Card>
                 </>
               ) : (
-                <div className="text-white  text-center ">
-                  There seems to be an error
-                </div>
+                <div className="text-white  text-center ">loading</div>
               )}
               <>
                 {comments.map((comment) => (
-                  <Card className="h-[10rem] bg-white" key={comment.id}>
+                  <Card
+                    className="h-[10rem] bg-black rounded-2xl"
+                    key={comment.id}
+                  >
                     <CardHeader>
-                      <CardTitle className="text-md text-left">
+                      <CardTitle className="text-l text-white text-left">
                         {comment.name}
                       </CardTitle>
-                      <CardDescription className="text-black text-left">
-                        {comment.content}
+                      <CardDescription className="text-white text-left">
+                        @{comment.userName}
                       </CardDescription>
-                      <CardContent>
-                        <div className="flex flex-row items-start gap-4 mt-5 px-4 hidden">
-                          <ThumbsUp className="hover:bg-blue-500 hover:text-white transition-colors duration-200 ease-in-out" />
-                          <ThumbsDown className="hover:bg-red-500 hover:text-white transition-colors duration-200 ease-in-out" />
-                        </div>
+                      <CardContent className="text-white p-3 text-left">
+                        {comment.content}
                       </CardContent>
                     </CardHeader>
                   </Card>
