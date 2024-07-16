@@ -17,6 +17,7 @@ import React, { useEffect, useState } from "react";
 // import cards from "@/components/comments/cards";
 import Image from "next/image";
 import Logo from "../../../../public/images/toxiq.svg";
+import { redirect } from "next/navigation";
 
 interface Post {
   id: string;
