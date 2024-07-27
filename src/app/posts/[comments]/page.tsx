@@ -155,7 +155,7 @@ export default function Page({ params }: { params: { comments: string } }) {
                         {post.content}
                         <div className="mt-4 flex justify-center items-center">
                           <Image
-                            src="https://api.toxiq.xyz/images/Posts/1721744148_6bd5170b-ff88-48c5-9138-6a84599aeae2.jpeg"
+                            src={post.mediaPath}
                             width={200}
                             height={200}
                             alt="images are cool"
