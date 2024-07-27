@@ -1,7 +1,7 @@
 // todo: refactor this because it could be cleaner
 // note: i am sorry, i speed ran this entire thing so there is a lot to go through
 // then again, this is peak development so...yall have fun
-// tf  counter: 0
+// tf  counter: 1
 
 "use client";
 
@@ -31,6 +31,7 @@ interface Post {
   isDeleted: boolean;
   postColor: string;
   wallVersion: number;
+  mediaPath: string;
 }
 
 interface Data {
@@ -137,7 +138,7 @@ export default function Page({ params }: { params: { comments: string } }) {
                 <>
                   {/* hard coded the css for the gradient. need to remove specific values and use post.postcolor value but make it a gradient and make it match for the border*/}
                   <Card
-                    className="h-[10rem] shadow-inner bg-gradient-to-b from-black to-blue-800 rounded-2xl border-blue-800"
+                    className="h-[21rem] shadow-inner bg-gradient-to-b from-black to-blue-800 rounded-2xl border-blue-800"
                     // style={{ backgroundColor: post.postColor }}
                     key={post.id}
                   >
@@ -150,8 +151,17 @@ export default function Page({ params }: { params: { comments: string } }) {
                           @{post.userName}
                         </CardTitle>
                       </div>
-                      <CardDescription className=" text-left text-white">
+                      <CardDescription className=" text-left text-white flex flex-grow flex-col">
                         {post.content}
+                        <div className="mt-4 flex justify-center items-center">
+                          <Image
+                            src="https://api.toxiq.xyz/images/Posts/1721744148_6bd5170b-ff88-48c5-9138-6a84599aeae2.jpeg"
+                            width={200}
+                            height={200}
+                            alt="images are cool"
+                            className="rounded-xl"
+                          />
+                        </div>
                       </CardDescription>
                       <CardContent>
                         <div className="flex flex-row items-start gap-4 mt-5 px-4 hidden">
