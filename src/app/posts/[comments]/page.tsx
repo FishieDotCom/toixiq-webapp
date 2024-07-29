@@ -18,6 +18,7 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Logo from "../../../../public/images/toxiq.svg";
 import { redirect } from "next/navigation";
+import { AspectRatio } from "@radix-ui/react-aspect-ratio";
 
 interface Post {
   id: string;
@@ -138,6 +139,7 @@ export default function Page({ params }: { params: { comments: string } }) {
                 <>
                   {/* hard coded the css for the gradient. need to remove specific values and use post.postcolor value but make it a gradient and make it match for the border*/}
                   <Card
+                    // TODO:Add custom hook to check if mediaPath exists or not and allow that to change the height from h-[10rem] to h-[21rem]
                     className="h-[21rem] shadow-inner bg-gradient-to-b from-black to-blue-800 rounded-2xl border-blue-800"
                     // style={{ backgroundColor: post.postColor }}
                     key={post.id}
@@ -154,13 +156,14 @@ export default function Page({ params }: { params: { comments: string } }) {
                       <CardDescription className=" text-left text-white flex flex-grow flex-col">
                         {post.content}
                         <div className="mt-4 flex justify-center items-center">
-                          <Image
-                            src={post.mediaPath}
-                            width={200}
-                            height={200}
-                            alt="images are cool"
-                            className="rounded-xl"
-                          />
+                          <AspectRatio ratio={16 / 9}>
+                            <Image
+                              src={post.mediaPath}
+                              alt="images are cool"
+                              fill
+                              className="rounded-xl"
+                            />
+                          </AspectRatio>
                         </div>
                       </CardDescription>
                       <CardContent>
@@ -203,4 +206,5 @@ export default function Page({ params }: { params: { comments: string } }) {
   );
 }
 
-// test: 91688f4d-cfa2-469d-bf48-d73673242187
+// test (no image): 91688f4d-cfa2-469d-bf48-d73673242187
+// test2 (with image): af2c709b-8e54-422c-9006-49e310ba60fe
