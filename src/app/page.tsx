@@ -24,12 +24,16 @@ function Home() {
             </div>
           </div>
           <div>
-            <div className="flex flex-col text-white text-center gap-4">
+            {/* <div className="flex flex-col text-white text-center gap-4">
               <Cards />
               <Cards />
               <Cards />
               <Cards />
-            </div>
+            </div> */}
+          </div>
+
+          <div className="flex items-center justify-center text-center text-white">
+            <h1>Toxiq app test</h1>
           </div>
         </main>
       </section>
